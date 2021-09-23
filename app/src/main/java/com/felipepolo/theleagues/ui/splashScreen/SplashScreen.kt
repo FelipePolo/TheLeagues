@@ -2,6 +2,7 @@ package com.felipepolo.theleagues.ui.splashScreen
 
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,9 +16,6 @@ import com.felipepolo.theleagues.databinding.FragmentSplashScreenBinding
 class SplashScreen : Fragment() {
 
     private lateinit var binding: FragmentSplashScreenBinding
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,8 +35,8 @@ class SplashScreen : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        Handler().postDelayed({
+        Handler(Looper.getMainLooper()).postDelayed({
             findNavController().navigate(R.id.action_splashScreen_to_homeFragment)
-        }, 2000)
+        }, 1000)
     }
 }

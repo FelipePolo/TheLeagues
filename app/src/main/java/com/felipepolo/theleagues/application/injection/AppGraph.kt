@@ -1,6 +1,5 @@
 package com.felipepolo.theleagues.application.injection
 
-import com.felipepolo.pokemonapp.di.ViewModelModule
 import com.felipepolo.theleagues.application.TodoApplication
 import dagger.BindsInstance
 import dagger.Component
@@ -11,7 +10,7 @@ import javax.inject.Singleton
 @Component(
     modules = [
         AndroidInjectionModule::class,
-        ActivityBuilderModule::class,
+        FragmentBuilderModule::class,
         AppModule::class,
         ViewModelModule::class
     ]

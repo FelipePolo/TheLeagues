@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.felipepolo.theleagues.core.BaseViewHolder
-import com.felipepolo.theleagues.data.model.Team
+import com.felipepolo.theleagues.data.model.TeamEntity
 import com.felipepolo.theleagues.databinding.TemplateTeamItemBinding
 
 class TeamListAdapter(
@@ -15,15 +15,15 @@ class TeamListAdapter(
     private val onTeamClickInterface: OnTeamClickInterface
 ) : RecyclerView.Adapter<BaseViewHolder<*>>() {
 
-    private var teamList = listOf<Team>()
+    private var teamList = listOf<TeamEntity>()
 
     interface OnTeamClickInterface {
-        fun onTeamClick(team: Team, position: Int)
+        fun onTeamClick(teamEntity: TeamEntity, position: Int)
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    fun setTeamList(newTeamList: List<Team>){
-        teamList = newTeamList
+    fun setTeamList(newTeamEntityList: List<TeamEntity>){
+        teamList = newTeamEntityList
         notifyDataSetChanged()
     }
 
@@ -44,14 +44,14 @@ class TeamListAdapter(
       return  teamList.size
     }
 
-    inner class TeamViewHolder(val binding:TemplateTeamItemBinding): BaseViewHolder<Team>(binding.root){
-        override fun bind(item: Team, position: Int) {
+    inner class TeamViewHolder(private val binding:TemplateTeamItemBinding): BaseViewHolder<TeamEntity>(binding.root){
+        override fun bind(item: TeamEntity, position: Int) {
             Glide.with(context)
                 .load(item.strTeamBadge)
                 .into(binding.ivTeamBadge)
-            binding.tvTeamName.setText(item.strTeam)
-            binding.tvStadium.setText(item.strStadium)
-            // Click Listeners
+            binding.tvTeamName.text = item.strTeam
+            binding.tvStadium.text = item.strStadium
+
             binding.teamItem.setOnClickListener { onTeamClickInterface.onTeamClick(item,position)}
         }
     }

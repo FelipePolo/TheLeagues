@@ -46,15 +46,14 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvTeams"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:listitem="@layout/template_team_item"
-            />
+            android:layout_height="wrap_content"
+            tools:listitem="@layout/template_team_item" />
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/progress_bar"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:layout_gravity="center"
+            android:layout_gravity="center_horizontal"
             app:lottie_autoPlay="true"
             app:lottie_loop="true"
             app:lottie_rawRes="@raw/loading" />

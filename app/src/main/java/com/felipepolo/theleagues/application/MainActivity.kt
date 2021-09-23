@@ -2,14 +2,14 @@ package com.felipepolo.theleagues.application
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.felipepolo.theleagues.R
 import com.felipepolo.theleagues.databinding.ActivityMainBinding
-import dagger.android.support.DaggerAppCompatActivity
 
-class MainActivity : DaggerAppCompatActivity(){
+class MainActivity : AppCompatActivity(){
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController

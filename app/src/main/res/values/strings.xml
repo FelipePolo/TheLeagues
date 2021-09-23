@@ -9,5 +9,9 @@
     </string-array>
 
     <string name="SpanishLeague">Spanish La Liga</string>
+    <string name="events">Last Five Events</string>
+
+    <string name="badgeContentDesc">Image of a soccer team</string>
+    <string name="jerseyContentDesc">T-shirt image of a soccer team</string>
 
 </resources>

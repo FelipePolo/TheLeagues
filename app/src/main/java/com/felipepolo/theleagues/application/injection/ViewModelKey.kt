@@ -1,4 +1,4 @@
-package com.felipepolo.pokemonapp.di
+package com.felipepolo.theleagues.application.injection
 
 import androidx.lifecycle.ViewModel
 import dagger.MapKey

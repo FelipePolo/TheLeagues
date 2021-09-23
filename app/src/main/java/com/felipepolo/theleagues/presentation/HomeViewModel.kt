@@ -2,11 +2,11 @@ package com.felipepolo.theleagues.presentation
 
 import androidx.lifecycle.*
 import com.felipepolo.theleagues.core.Resource
-import com.felipepolo.theleagues.data.model.League
-import com.felipepolo.theleagues.data.model.Team
+import com.felipepolo.theleagues.data.model.TeamEntity
 import com.felipepolo.theleagues.domain.SportRepositoryInt
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.lang.Exception
 import javax.inject.Inject
 
@@ -15,8 +15,8 @@ class HomeViewModel @Inject constructor(private val sportRepositoryInt: SportRep
 
     private var currentLeague: String = "Spanish La Liga"
 
-    private var _teamList: MutableLiveData<Resource<List<Team>>> = MutableLiveData(Resource.Loading)
-    val teamList: LiveData<Resource<List<Team>>> = _teamList
+    private var _teamEntityList: MutableLiveData<Resource<List<TeamEntity>>> = MutableLiveData()
+    val teamEntityList: LiveData<Resource<List<TeamEntity>>> = _teamEntityList
 
 
     init {
@@ -24,11 +24,14 @@ class HomeViewModel @Inject constructor(private val sportRepositoryInt: SportRep
     }
 
     private fun teamListByLeague() {
+        _teamEntityList.value = Resource.Loading
         viewModelScope.launch{
             try {
-                _teamList.value = sportRepositoryInt.getTeamListByLeague(currentLeague)
+                _teamEntityList.value = withContext(Dispatchers.IO) {
+                    sportRepositoryInt.getTeamListByLeague(currentLeague)
+                }
             } catch (e: Exception) {
-                _teamList.value = Resource.Failure(e)
+                _teamEntityList.value = Resource.Failure(e)
             }
         }
     }

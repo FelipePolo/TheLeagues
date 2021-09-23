@@ -1,6 +1,175 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout3"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.detail.DetailFragment"/>
+    android:background="@drawable/splashscreen"
+    tools:context=".ui.detail.DetailFragment">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/background_team_item">
+
+            <TextView
+                android:id="@+id/tvTeamDetailName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Barcelona" />
+
+            <TextView
+                android:id="@+id/tvDetailDescription"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lvEvents"
+                tools:text="Barcelona team is one of the best now a days" />
+
+            <TextView
+                android:id="@+id/tvDetailFoundation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="179dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="174dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvDetailDescription"
+                tools:text="1920" />
+
+            <ImageView
+                android:id="@+id/ivDetailBadge"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                android:contentDescription="@string/badgeContentDesc"
+                android:src="@android:drawable/btn_star_big_on"
+                app:layout_constraintEnd_toStartOf="@+id/ivDetailJersey"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvDetailFoundation"
+                app:srcCompat="@drawable/badgexample"
+                tools:srcCompat="@drawable/badgexample" />
+
+            <ImageView
+                android:id="@+id/ivDetailJersey"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                android:contentDescription="@string/jerseyContentDesc"
+                android:src="@android:drawable/btn_star_big_on"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ivDetailBadge"
+                app:layout_constraintTop_toBottomOf="@+id/tvDetailFoundation"
+                app:srcCompat="@drawable/jerseyexample"
+                tools:srcCompat="@drawable/jerseyexample" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="150dp"
+
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="150dp"
+                android:text="@string/events"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvTeamDetailName" />
+
+            <ListView
+                android:id="@+id/lvEvents"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginTop="16dp"
+                android:foregroundGravity="center_horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView5"></ListView>
+
+            <LinearLayout
+                android:id="@+id/lSocialIcons"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ivDetailBadge">
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/ivWebpage"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    android:src="@android:drawable/ic_input_add"
+                    app:lottie_autoPlay="true"
+                    app:lottie_rawRes="@raw/webpage"
+                    tools:ignore="ImageContrastCheck" />
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/ivFacebook"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    android:src="@android:drawable/ic_input_add"
+                    app:lottie_autoPlay="true"
+                    app:lottie_rawRes="@raw/facebook" />
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/ivTwitter"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    android:src="@android:drawable/ic_input_add"
+                    app:lottie_autoPlay="true"
+                    app:lottie_rawRes="@raw/twitter"
+                    tools:ignore="ImageContrastCheck" />
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/ivInstagram"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    android:src="@android:drawable/ic_input_add"
+                    app:lottie_autoPlay="true"
+                    app:lottie_rawRes="@raw/instagram" />
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/ivYoutube"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    android:src="@android:drawable/ic_input_add"
+                    app:lottie_autoPlay="true"
+                    app:lottie_rawRes="@raw/youtube" />
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,7 +1,9 @@
 package com.felipepolo.pokedex.utils
 
 import android.view.View
+import android.view.ViewGroup
 import android.widget.ImageView
+import com.airbnb.lottie.LottieAnimationView
 import com.bumptech.glide.Glide
 import com.google.android.material.snackbar.Snackbar
 
@@ -13,6 +15,15 @@ fun View.ShowIf(condition: Boolean){
         this.visibility = View.VISIBLE
     }else{
         this.visibility = View.GONE
+    }
+}
+
+fun LottieAnimationView.setupSocialIf(uri: String, clickListener: View.OnClickListener ) {
+    if (uri.isNotEmpty()){
+        this.visibility = View.VISIBLE
+        this.setOnClickListener(clickListener)
+    }else{
+        (this.parent as ViewGroup).removeView(this)
     }
 }
 

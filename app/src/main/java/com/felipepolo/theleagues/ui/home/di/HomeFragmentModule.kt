@@ -1,9 +1,7 @@
 package com.felipepolo.theleagues.ui.home.di
 
 import androidx.lifecycle.ViewModel
-import com.felipepolo.pokemonapp.di.ViewModelKey
-import com.felipepolo.theleagues.domain.SportRepositoryImp
-import com.felipepolo.theleagues.domain.SportRepositoryInt
+import com.felipepolo.theleagues.application.injection.ViewModelKey
 import com.felipepolo.theleagues.presentation.HomeViewModel
 import dagger.Binds
 import dagger.Module
@@ -16,7 +14,4 @@ abstract class HomeFragmentModule {
     @IntoMap
     @ViewModelKey(HomeViewModel::class)
     abstract fun bindHomeViewModel(viewModel: HomeViewModel): ViewModel
-
-    @Binds
-    abstract fun provideSportRepo(sportRepositoryImp: SportRepositoryImp): SportRepositoryInt
 }
