@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">theleagues</string>
+
+
+    <string-array name="leagues">
+        <item>Spanish La Liga</item>
+        <item>French Ligue 1</item>
+        <item>Italian Serie A</item>
+    </string-array>
+
+    <string name="SpanishLeague">Spanish La Liga</string>
+
 </resources>
