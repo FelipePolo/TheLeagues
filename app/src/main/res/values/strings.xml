@@ -13,5 +13,6 @@
 
     <string name="badgeContentDesc">Image of a soccer team</string>
     <string name="jerseyContentDesc">T-shirt image of a soccer team</string>
+    <string name="league">League</string>
 
 </resources>

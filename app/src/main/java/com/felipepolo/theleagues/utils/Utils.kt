@@ -7,9 +7,6 @@ import com.airbnb.lottie.LottieAnimationView
 import com.bumptech.glide.Glide
 import com.google.android.material.snackbar.Snackbar
 
-
-
-
 fun View.ShowIf(condition: Boolean){
     if (condition){
         this.visibility = View.VISIBLE
